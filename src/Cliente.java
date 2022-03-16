@@ -2,20 +2,20 @@ import java.time.LocalDate;
 
 public class Cliente {
     // Atributos
-    private int AÑOACTUAL = LocalDate.now().getDayOfYear();
+    protected int ANIOACTUAL = LocalDate.now().getYear();
 
-    private String name;
-    private String nacionalidad;
-    private int edad;
-    private int id;
-    private LocalDate fechaNacimiento;
+    protected String name;
+    protected String nacionalidad;
+    protected int edad;
+    protected int id;
+    protected LocalDate fechaNacimiento;
 
     public Cliente(String name, String nacionalidad, int id, LocalDate fechaNacimiento){
         this.name = name;
         this.nacionalidad = nacionalidad;
         this.id = id;
         this.fechaNacimiento = fechaNacimiento;
-        this.edad = getAÑOACTUAL() - fechaNacimiento.getDayOfYear();
+        this.edad = ANIOACTUAL - fechaNacimiento.getYear();
     }
 
     public String getInfoClient() {
