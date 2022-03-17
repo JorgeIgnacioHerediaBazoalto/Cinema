@@ -12,13 +12,14 @@ public class TestCinema {
     public void testClient(){
         Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
 
+
         String expected = "Name:\t\tJuan Tasma\n" +
                 "Nacionalidad:\tBolivia\n" +
                 "ID\t\t123456789\n" +
                 "Edad:\t\t19\n" +
                 "Fecha de nacimiento:\t2003-10-08\n";
 
-        assertEquals(expected, cliente1.getInfoClient());
+        assertEquals(expected, cliente1.getInfo());
     }
 
     @Test
@@ -39,5 +40,15 @@ public class TestCinema {
         Sala sala = new Sala("A1",pelicula);
         PlantillaSala plantillaSala = new PlantillaSala(sala);
         System.out.println(sala.getInfoSala());
+    }
+
+    @Test
+    public void testIDClient() {
+        //la funcion de asignar el id en orden funciona, pero falta que el id sea correlativo, para eso necesito usar el arraylsit de clientes en cine
+        Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+        assertEquals("CLI-0", cliente1.getIdClient());
+
+        Empleado empleado1 = new Empleado("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+        assertEquals("EMP-0", empleado1.getIdEmpleado());
     }
 }
