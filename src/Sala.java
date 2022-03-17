@@ -5,11 +5,11 @@ public class Sala {
     Pelicula pelicula;
     ArrayList<Fila> capacidad;
     int numerofilas;
-    public Sala(String numerosala,Pelicula pelicula,ArrayList<Fila> capacidad,int numerofilas){
+    public Sala(String numerosala,Pelicula pelicula,int numerofilas){
         this.numerosala=numerosala;
         this.pelicula=pelicula;
-        this.capacidad=capacidad;
         this.numerofilas=numerofilas;
+        this.capacidad=new ArrayList<>();
     }
     public Pelicula getPelicula() {
         return pelicula;
@@ -20,11 +20,9 @@ public class Sala {
     public void setCapacidad(ArrayList<Fila> capacidad) {
         this.capacidad = capacidad;
     }
-
     public String getNumerosala() {
         return numerosala;
     }
-
     public ArrayList<Fila> getCapacidad() {
         return capacidad;
     }
@@ -39,15 +37,9 @@ public class Sala {
         return info;
     }
     public void setFilas(ArrayList<Fila> filas) {
-        if (capacidad.size()<=numerofilas){
-            this.capacidad=capacidad;
-        }
-        else {return;}
+        this.capacidad=capacidad;
     }
     public void addFila(Fila fila) {
-        if (capacidad.size()<=numerofilas){
-            capacidad.add(fila);
-        }
-        else {return;}
+        capacidad.add(fila);
     }
 }

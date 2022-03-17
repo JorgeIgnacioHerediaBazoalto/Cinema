@@ -6,7 +6,6 @@ public class Fila {
     int capacidadfila;
     public Fila(String codigo,int capacidadfila){
         this.codigo=codigo;
-        this.butacas=butacas;
         this.butacas=new ArrayList<>();
         this.capacidadfila=capacidadfila;
     }
@@ -29,12 +28,14 @@ public class Fila {
         if (butacas.size()<=capacidadfila){
             this.butacas = butacas;
         }
-        else {return;}
+        else {
+        }
     }
     public void addButaca(Butaca butaca) {
         if (butacas.size()<=capacidadfila){
             butacas.add(butaca);
         }
-        else {return;}
+        else {
+        }
     }
 }

@@ -33,4 +33,11 @@ public class TestCinema {
         assertEquals("A", fila.getCodigo());
         System.out.println(fila.getInfoFila());
     }
+    @Test
+    public void testSala(){
+        Pelicula pelicula = new Pelicula("Duro de matar",GeneroPelicula.ACCION,300.45);
+        Sala sala = new Sala("A1",pelicula,8);
+        PlantillaSala plantillaSala = new PlantillaSala(sala);
+        System.out.println(sala.getInfoSala());
+    }
 }
