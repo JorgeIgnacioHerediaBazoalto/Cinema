@@ -16,12 +16,15 @@ public class Fila {
     public String getInfoFila(){
         String info="";
         info += "Código de fila:\t\t" + getCodigo() + "\n";
+        info += "Numero de butaca:\t\t" + "Disponibilidad:\t\t" + "\n";
         for (Butaca butaca:butacas) {
-            info += butaca.getInfoButaca();
+            info +=butaca.getNumero()+" ".repeat(23)+butaca.estaDisponible()+"\n";
         }
         return info;
     }
-
+    public void setCapacidadfila(int capacidadfila) {
+        this.capacidadfila = capacidadfila;
+    }
     public void setButacas(ArrayList<Butaca> butacas) {
         if (butacas.size()<=capacidadfila){
             this.butacas = butacas;

@@ -1,12 +1,12 @@
 public class Butaca {
     int numero;
-    boolean ocupado;
-    public Butaca(int numero,boolean ocupado){
+    boolean disponible;
+    public Butaca(int numero,boolean disponible){
         this.numero=numero;
-        this.ocupado=ocupado;
+        this.disponible=disponible;
     }
-    public boolean isOcupado() {
-        return ocupado;
+    public boolean estaDisponible() {
+        return disponible;
     }
     public int getNumero() {
         return numero;
@@ -14,7 +14,7 @@ public class Butaca {
     public String getInfoButaca() {
         String info = "";
         info += "Numero de butaca:\t\t" + getNumero() + "\n";
-        info += "Disponibilidad:\t" + isOcupado() + "\n";
+        info += "Disponibilidad:\t" + disponible + "\n";
         return info;
     }
 }
