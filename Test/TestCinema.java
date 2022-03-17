@@ -28,7 +28,7 @@ public class TestCinema {
     }
     @Test
     public void testFila(){
-        Fila fila=new Fila("A",10);
+        Fila fila=new Fila("A");
         PlantillaFila plantillaFila=new PlantillaFila(fila);
         assertEquals("A", fila.getCodigo());
         System.out.println(fila.getInfoFila());
@@ -36,7 +36,7 @@ public class TestCinema {
     @Test
     public void testSala(){
         Pelicula pelicula = new Pelicula("Duro de matar",GeneroPelicula.ACCION,300.45);
-        Sala sala = new Sala("A1",pelicula,8);
+        Sala sala = new Sala("A1",pelicula);
         PlantillaSala plantillaSala = new PlantillaSala(sala);
         System.out.println(sala.getInfoSala());
     }

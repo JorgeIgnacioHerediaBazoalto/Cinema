@@ -4,7 +4,7 @@ public class Fila {
     String codigo;
     ArrayList<Butaca> butacas;
     int capacidadfila;
-    public Fila(String codigo,int capacidadfila){
+    public Fila(String codigo){
         this.codigo=codigo;
         this.butacas=new ArrayList<>();
         this.capacidadfila=capacidadfila;
@@ -25,17 +25,9 @@ public class Fila {
         this.capacidadfila = capacidadfila;
     }
     public void setButacas(ArrayList<Butaca> butacas) {
-        if (butacas.size()<=capacidadfila){
-            this.butacas = butacas;
-        }
-        else {
-        }
+        this.butacas = butacas;
     }
     public void addButaca(Butaca butaca) {
-        if (butacas.size()<=capacidadfila){
-            butacas.add(butaca);
-        }
-        else {
-        }
+        butacas.add(butaca);
     }
 }

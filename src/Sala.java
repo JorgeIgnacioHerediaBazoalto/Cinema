@@ -4,11 +4,10 @@ public class Sala {
     String numerosala;
     Pelicula pelicula;
     ArrayList<Fila> capacidad;
-    int numerofilas;
-    public Sala(String numerosala,Pelicula pelicula,int numerofilas){
+    int numerobutacas;
+    public Sala(String numerosala,Pelicula pelicula){
         this.numerosala=numerosala;
         this.pelicula=pelicula;
-        this.numerofilas=numerofilas;
         this.capacidad=new ArrayList<>();
     }
     public Pelicula getPelicula() {
@@ -27,9 +26,14 @@ public class Sala {
         return capacidad;
     }
     public String getInfoSala(){
+        for (Fila fila:capacidad) {
+            for (Butaca butaca: fila.butacas) {
+                numerobutacas=numerobutacas+1;
+            }
+        }
         String info="";
         info += "Número de Sala:\t\t" + getNumerosala() + "\n";
-        info += "Capacidad de sala:\t\t" + getCapacidad() + "\n";
+        info += "Capacidad de sala:\t\t" + numerobutacas+" butacas" + "\n";
         info += "Organización de sala:\t\t" + "\n";
         for (Fila fila:capacidad) {
             info+=fila.getInfoFila();
