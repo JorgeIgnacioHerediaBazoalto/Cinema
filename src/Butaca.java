@@ -1,6 +1,6 @@
 public class Butaca {
     int numero;
-    boolean disponible;
+    private boolean disponible;
     public Butaca(int numero,boolean disponible){
         this.numero=numero;
         this.disponible=disponible;

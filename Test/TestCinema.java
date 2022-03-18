@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.concurrent.Callable;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -39,9 +40,16 @@ public class TestCinema {
         Pelicula pelicula = new Pelicula("Duro de matar",GeneroPelicula.ACCION,300.45);
         Sala sala = new Sala("A1",pelicula);
         PlantillaSala plantillaSala = new PlantillaSala(sala);
-        System.out.println(sala.getInfoSala());
+        System.out.println(sala.InfoSala());
+        //System.out.println(sala.infoFilasDisponibles());
     }
+    @Test
+    public void testCineobjetos(){
+        Cine cine = new Cine("Astor");
+        PlantillaCine plantillaCine=new PlantillaCine(cine);
+        System.out.println(cine.infocine());
 
+    }
     @Test
     public void testIDClient() {
         //la funcion de asignar el id en orden funciona, pero falta que el id sea correlativo, para eso necesito usar el arraylsit de clientes en cine
@@ -70,4 +78,5 @@ public class TestCinema {
 
         assertEquals(expected, cartelera.getCartelera());
     }
+
 }
