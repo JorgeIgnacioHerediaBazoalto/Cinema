@@ -1,24 +1,49 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Cine {
-    ArrayList<Sala> salas;
     String nombre;
-    ArrayList<Sala> disponibles;
+    ArrayList<Sala> salas;
     public Cine(String nombre){
         this.nombre=nombre;
         this.salas=new ArrayList<>();
-        this.disponibles=new ArrayList<>();
     }
-    public void addSala(Sala sala){
-        salas.add(sala);
-    }
-    public String infocine(){
-        String info="";
-        info += "Nombre del cine:\t\t" + nombre + "\n";
-        info += "Organización de salas:\t\t"+"\n";
+    public ArrayList<Sala> getSalas() {return salas;}
+    public void addSala(Sala sala){salas.add(sala);}
+    public String getNombre() {return nombre;}
+    public String infoCine(){
+        StringBuilder info= new StringBuilder();
+        info.append("Nombre del cine ").append(getNombre()).append("\n");
         for (Sala sala:salas) {
-            info += sala.InfoSala();
+            info.append(sala.infoSala());
         }
-        return info;
+        return info.toString();
+
+    }
+    public void comprarbutaca(String codigosala,String codigofila,int numerobutaca){
+        for (Sala sala:getSalas()) {
+            if (Objects.equals(codigosala, sala.getCodigosala())){
+                for (Fila fila:sala.getFilas()) {
+                    if (Objects.equals(codigofila, fila.getCodigofila())){
+                        for (Butaca butaca: fila.getButacas()) {
+                            if (butaca.getNumero()==numerobutaca){
+                                Butaca blanco = fila.getButacas().get(numerobutaca-1);
+                                if (blanco.estaDisponible()){
+                                    String c="";
+                                    c+="Numero de sala: "+codigosala+"\n";
+                                    c+="Numero de fila: "+codigofila+"\n";
+                                    c+="Numero de butaca: "+numerobutaca+"\n";
+                                    System.out.println(c);
+                                    blanco.disponible=false;
+                                }
+                                else {
+                                    System.out.println("Compra invalida");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

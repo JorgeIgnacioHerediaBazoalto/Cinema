@@ -27,29 +27,35 @@ public class TestCinema {
     public void testButaca(){
         Butaca b1=new Butaca(1,true);
         assertTrue(b1.estaDisponible());
+        System.out.println(b1.getInfoButaca());
     }
+
     @Test
     public void testFila(){
-        Fila fila=new Fila("A");
-        PlantillaFila plantillaFila=new PlantillaFila(fila);
-        assertEquals("A", fila.getCodigo());
-        System.out.println(fila.getInfoFila());
+        Fila f=new Fila("A1");
+        PlantillaFila p = new PlantillaFila(f);
+        System.out.println(f.infoFila());
     }
     @Test
     public void testSala(){
-        Pelicula pelicula = new Pelicula("Duro de matar",GeneroPelicula.ACCION,300.45);
-        Sala sala = new Sala("A1",pelicula);
-        PlantillaSala plantillaSala = new PlantillaSala(sala);
-        System.out.println(sala.InfoSala());
-        //System.out.println(sala.infoFilasDisponibles());
+        Sala s=new Sala("A");
+        PlantillaSala p = new PlantillaSala(s);
+        System.out.println(s.infoSala());
     }
     @Test
-    public void testCineobjetos(){
-        Cine cine = new Cine("Astor");
-        PlantillaCine plantillaCine=new PlantillaCine(cine);
-        System.out.println(cine.infocine());
-
+    public void testCine(){
+        Cine c = new Cine("Astor");
+        PlantillaCine pc = new PlantillaCine(c);
+        System.out.println(c.infoCine());
     }
+    @Test
+    public void testOcuparButaca(){
+        Cine c = new Cine("Astor");
+        PlantillaCine pc = new PlantillaCine(c);
+        c.comprarbutaca("A","A1",1);
+        System.out.println(c.infoCine());
+    }
+
     @Test
     public void testIDClient() {
         //la funcion de asignar el id en orden funciona, pero falta que el id sea correlativo, para eso necesito usar el arraylsit de clientes en cine

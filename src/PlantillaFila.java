@@ -12,15 +12,15 @@ public class PlantillaFila {
         Butaca b8=new Butaca(8,true);
         Butaca b9=new Butaca(9,true);
         Butaca b10=new Butaca(10,false);
-        fila.addButaca(b1);
-        fila.addButaca(b2);
-        fila.addButaca(b3);
-        fila.addButaca(b4);
-        fila.addButaca(b5);
-        fila.addButaca(b6);
-        fila.addButaca(b7);
-        fila.addButaca(b8);
-        fila.addButaca(b9);
-        fila.addButaca(b10);
+        fila.addbutaca(b1);
+        fila.addbutaca(b2);
+        fila.addbutaca(b3);
+        fila.addbutaca(b4);
+        fila.addbutaca(b5);
+        fila.addbutaca(b6);
+        fila.addbutaca(b7);
+        fila.addbutaca(b8);
+        fila.addbutaca(b9);
+        fila.addbutaca(b10);
     }
 }
