@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Cartelera {
@@ -27,7 +28,13 @@ public class Cartelera {
             carteleraString += "Pelicula: " + funcion.peliculas.nombrePelicula + "\n" +
                     "\t\tGenero: " + funcion.peliculas.genero + "\n"  +
                     "\t\tDuracion: " + funcion.peliculas.duracion + "\n"  +
-                    "\t\tTipo Pelicula: " + funcion.tipoPelicula + "\n\n";
+                    "\t\tTipo Pelicula: " + funcion.tipoPelicula + "\n" +
+                    "\t\tHorario: \n";
+
+            for (LocalTime hora: funcion.horarios
+                 ) {
+                carteleraString += "\t\t\t" + hora + "\n";
+            }
         }
 
         return carteleraString;

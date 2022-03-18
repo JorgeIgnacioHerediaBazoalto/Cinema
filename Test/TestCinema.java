@@ -1,8 +1,8 @@
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
-import java.util.concurrent.Callable;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -12,7 +12,6 @@ public class TestCinema {
     @Test
     public void testClient(){
         Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
-
 
         String expected = "Name:\t\tJuan Tasma\n" +
                 "Nacionalidad:\tBolivia\n" +
@@ -73,6 +72,8 @@ public class TestCinema {
         Pelicula peli1 = new Pelicula("Point Of Break", GeneroPelicula.ACCION, 2.5);
         Funcion funcion = new Funcion(peli1, "2D", 40, 50);
 
+        funcion.addHorario(LocalTime.of(2, 30));
+
         cartelera.addFuncion(funcion);
 
         String expected = "------------------------------CARTELERA------------------------------\n" +
@@ -80,7 +81,9 @@ public class TestCinema {
                 "Pelicula: Point Of Break\n" +
                 "\t\tGenero: ACCION\n" +
                 "\t\tDuracion: 2.5\n" +
-                "\t\tTipo Pelicula: 2D\n\n";
+                "\t\tTipo Pelicula: 2D\n" +
+                "\t\tHorario: \n" +
+                "\t\t\t02:30\n";
 
         assertEquals(expected, cartelera.getCartelera());
     }
