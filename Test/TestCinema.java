@@ -51,4 +51,23 @@ public class TestCinema {
         Empleado empleado1 = new Empleado("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
         assertEquals("EMP-0", empleado1.getIdEmpleado());
     }
+
+    @Test
+    public void testCartelera() {
+        int year = 2022;
+        Cartelera cartelera = new Cartelera(LocalDate.of(year, 3, 17), LocalDate.of(year, 4, 2));
+        Pelicula peli1 = new Pelicula("Point Of Break", GeneroPelicula.ACCION, 2.5);
+        Funcion funcion = new Funcion(peli1, "2D", 40, 50);
+
+        cartelera.addFuncion(funcion);
+
+        String expected = "------------------------------CARTELERA------------------------------\n" +
+                "Disponible desde: 2022-03-17\tHasta: 2022-04-02\n\n" +
+                "Pelicula: Point Of Break\n" +
+                "\t\tGenero: ACCION\n" +
+                "\t\tDuracion: 2.5\n" +
+                "\t\tTipo Pelicula: 2D\n\n";
+
+        assertEquals(expected, cartelera.getCartelera());
+    }
 }
