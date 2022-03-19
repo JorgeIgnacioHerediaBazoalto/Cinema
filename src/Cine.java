@@ -28,8 +28,10 @@ public class Cine {
         StringBuilder info= new StringBuilder();
         info.append("Nombre del cine ").append(getNombre()).append("\n");
         for (Sala sala:salas) {
-            info.append(sala.infoSala());
+            info.append("Código de sala: ").append(sala.getCodigosala()).append("\n");
+            info.append(sala.mostrarAsientos());
         }
+        info.append("\n");
         return info.toString();
     }
 
@@ -48,6 +50,7 @@ public class Cine {
                                     c+="Numero de butaca: "+numerobutaca+"\n";
                                     System.out.println(c);
                                     blanco.disponible=false;
+                                    System.out.println(sala.mostrarAsientos());
                                 }
                                 else {
                                     System.out.println("Compra invalida");
@@ -58,5 +61,6 @@ public class Cine {
                 }
             }
         }
+
     }
 }

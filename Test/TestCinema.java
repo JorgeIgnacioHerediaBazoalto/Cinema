@@ -39,7 +39,7 @@ public class TestCinema {
     public void testSala(){
         Sala s=new Sala("A", 6);
         PlantillaSala p = new PlantillaSala(s);
-        System.out.println(s.infoSala());
+        System.out.println(s.mostrarAsientos());
     }
     @Test
     public void testCine(){
@@ -51,8 +51,8 @@ public class TestCinema {
     public void testOcuparButaca(){
         Cine c = new Cine("Astor");
         PlantillaCine pc = new PlantillaCine(c);
-        c.comprarbutaca("A","A1",1);
         System.out.println(c.infoCine());
+        c.comprarbutaca("C","A",9);
     }
 
     @Test

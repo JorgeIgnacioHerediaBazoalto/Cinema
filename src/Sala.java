@@ -20,7 +20,6 @@ public class Sala {
 
     public void generarButacas(int numeroButacasFila) {
         String[] ArrayStrings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-
         for(int i = 0; i < numeroFilas; i++) {
             Fila fila = new Fila(ArrayStrings[i], numeroButacasFila);
             fila.generarButacas();
@@ -41,13 +40,13 @@ public class Sala {
             for (Butaca butaca : fila.butacas
                  ) {
                 if (butaca.estaDisponible()){
-                    asientos += ANSI_GREEN + "!-*-! ";
+                    asientos += ANSI_GREEN + "!---! ";
                 }
                 else {
                     asientos += ANSI_RED + "!-*-! ";
                 }
             }
-            asientos += "\n";
+            asientos += "\n"+ANSI_RESET;
         }
 
         return asientos;
@@ -59,12 +58,4 @@ public class Sala {
 
     public ArrayList<Fila> getFilas() {return filas;}
 
-    public String infoSala(){
-        StringBuilder info= new StringBuilder();
-        info.append("Codigo de Sala ").append(getCodigosala()).append("\n");
-        for (Fila fila:filas) {
-            info.append(fila.infoFila());
-        }
-        return info.toString();
-    }
 }
