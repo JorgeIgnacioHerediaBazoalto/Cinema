@@ -1,20 +1,31 @@
 import java.util.ArrayList;
 
 public class Fila {
-    String codigofila;
-    ArrayList<Butaca>butacas;
-    public Fila(String codigo){
-        this.codigofila=codigo;
-        this.butacas=new ArrayList<>();
+    int limiteButacas;
+    String codigoFila;
+    ArrayList<Butaca> butacas;
+
+    public Fila(String codigo, int limiteButacas){
+        this.codigoFila = codigo;
+        this.limiteButacas = limiteButacas;
+        this.butacas = new ArrayList<>();
+    }
+
+    public void generarButacas() {
+        for (int i = 0; i < limiteButacas; i++) {
+            Butaca butaca = new Butaca(i, true);
+            addbutaca(butaca);
+        }
     }
 
     public String getCodigofila() {
-        return codigofila;
+        return codigoFila;
     }
 
     public ArrayList<Butaca> getButacas() {
         return butacas;
     }
+
     public void addbutaca(Butaca butaca){
         butacas.add(butaca);
     }

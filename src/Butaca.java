@@ -17,4 +17,8 @@ public class Butaca {
         info += "Disponibilidad:" + estaDisponible() + "\n";
         return info;
     }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
 }

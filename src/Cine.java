@@ -3,14 +3,27 @@ import java.util.Objects;
 
 public class Cine {
     String nombre;
+    Boleteria boleteria;
     ArrayList<Sala> salas;
+
     public Cine(String nombre){
-        this.nombre=nombre;
-        this.salas=new ArrayList<>();
+        this.nombre = nombre;
+        this.salas = new ArrayList<>();
+        this.boleteria = null;
     }
+
+    public Cine(String nombre, Boleteria boleteria) {
+        this.nombre = nombre;
+        this.salas = new ArrayList<>();
+        this.boleteria = boleteria;
+    }
+
     public ArrayList<Sala> getSalas() {return salas;}
+
     public void addSala(Sala sala){salas.add(sala);}
+
     public String getNombre() {return nombre;}
+
     public String infoCine(){
         StringBuilder info= new StringBuilder();
         info.append("Nombre del cine ").append(getNombre()).append("\n");
@@ -18,8 +31,8 @@ public class Cine {
             info.append(sala.infoSala());
         }
         return info.toString();
-
     }
+
     public void comprarbutaca(String codigosala,String codigofila,int numerobutaca){
         for (Sala sala:getSalas()) {
             if (Objects.equals(codigosala, sala.getCodigosala())){

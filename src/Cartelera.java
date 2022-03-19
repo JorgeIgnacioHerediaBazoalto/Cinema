@@ -20,23 +20,35 @@ public class Cartelera {
     }
 
     public String getCartelera() {
+        int contPeli = 1;
         String carteleraString = "------------------------------CARTELERA------------------------------\n" +
                 "Disponible desde: " + plazoInicio + "\tHasta: " + plazoFin + "\n\n";
 
         for (Funcion funcion: funcions
              ) {
-            carteleraString += "Pelicula: " + funcion.peliculas.nombrePelicula + "\n" +
-                    "\t\tGenero: " + funcion.peliculas.genero + "\n"  +
-                    "\t\tDuracion: " + funcion.peliculas.duracion + "\n"  +
-                    "\t\tTipo Pelicula: " + funcion.tipoPelicula + "\n" +
-                    "\t\tHorario: \n";
-
-            for (LocalTime hora: funcion.horarios
-                 ) {
-                carteleraString += "\t\t\t" + hora + "\n";
-            }
+            carteleraString += "FUNCION N°: " + contPeli + "\n";
+            carteleraString += funcion.mostrarFuncion();
+            contPeli++;
         }
 
         return carteleraString;
+    }
+
+    public Funcion searchFuncions(int indice) {
+        return funcions.get(indice - 1);
+    }
+
+    public Funcion searchFuncions(String nameFuncion) {
+        Funcion funcionReturn = null;
+        for (Funcion funcion : funcions
+             ) {
+            if (funcion.peliculas.nombrePelicula.equals(nameFuncion)) {
+                funcionReturn = funcion;
+            }
+            else {
+                funcionReturn = null;
+            }
+        }
+        return funcionReturn;
     }
 }

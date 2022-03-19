@@ -31,13 +31,13 @@ public class TestCinema {
 
     @Test
     public void testFila(){
-        Fila f=new Fila("A1");
+        Fila f=new Fila("A1", 10);
         PlantillaFila p = new PlantillaFila(f);
         System.out.println(f.infoFila());
     }
     @Test
     public void testSala(){
-        Sala s=new Sala("A");
+        Sala s=new Sala("A", 6);
         PlantillaSala p = new PlantillaSala(s);
         System.out.println(s.infoSala());
     }
@@ -72,12 +72,16 @@ public class TestCinema {
         Pelicula peli1 = new Pelicula("Point Of Break", GeneroPelicula.ACCION, 2.5);
         Funcion funcion = new Funcion(peli1, "2D", 40, 50);
 
-        funcion.addHorario(LocalTime.of(2, 30));
+        Sala sala1 = new Sala("VIP-3", 8);
+        Sala sala2 = new Sala("VIP-3", 8);
+
+        funcion.addHorario(LocalTime.of(2, 30), sala1);
 
         cartelera.addFuncion(funcion);
 
         String expected = "------------------------------CARTELERA------------------------------\n" +
                 "Disponible desde: 2022-03-17\tHasta: 2022-04-02\n\n" +
+                "FUNCION N°: 1\n" +
                 "Pelicula: Point Of Break\n" +
                 "\t\tGenero: ACCION\n" +
                 "\t\tDuracion: 2.5\n" +
@@ -86,6 +90,16 @@ public class TestCinema {
                 "\t\t\t02:30\n";
 
         assertEquals(expected, cartelera.getCartelera());
+    }
+
+    @Test
+    public void testSala2() {
+        Sala sala1 = new Sala("1-VIP", 8);
+        sala1.generarButacas(10);
+        System.out.println(sala1.mostrarAsientos());
+
+        sala1.filas.get(0).butacas.get(0).setDisponible(false);
+        System.out.println(sala1.mostrarAsientos());
     }
 
 }

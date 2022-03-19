@@ -1,6 +1,8 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Boleto {
 
-    Cine cine;
     Pelicula pelicula;
     Cliente cliente;
     Sala sala;
@@ -8,13 +10,21 @@ public class Boleto {
     String hora;
     int total;
 
+    //agregar constructor
+    public Boleto(Funcion funcion, Cliente cliente, LocalTime hora) {
+        this.pelicula = funcion.peliculas;
+        this.cliente = cliente;
+        this.sala = funcion.salas.get(funcion.horarios.indexOf(hora));
+
+    }
+
     public void generarBoleto(){
         int n1 = 52;
         int n2 = 6;
         int n3 = 21;
 
         System.out.println("=".repeat(n1));
-        System.out.println(" ".repeat(16) + "CINE " + cine + " - BOLETO");
+        System.out.println(" ".repeat(16) + "CINE " + /*cine + */ " - BOLETO");
         System.out.println("=".repeat(n1));
         System.out.println("=".repeat(n1) + "\n");
         System.out.println(" ".repeat(n2) + "PELICULA" + " ".repeat(11) + ":" + " ".repeat(n2) + pelicula);
