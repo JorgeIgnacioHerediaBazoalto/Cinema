@@ -22,9 +22,9 @@ public class Cine {
         Sala e=new Sala("E");
         e.generarFilas(8,10);
         Sala f=new Sala("F");
-        e.generarFilas(5,10);
+        f.generarFilas(5,10);
         Sala g=new Sala("G");
-        e.generarFilas(5,10);
+        g.generarFilas(5,10);
         addSala(a);
         addSala(b);
         addSala(c);
