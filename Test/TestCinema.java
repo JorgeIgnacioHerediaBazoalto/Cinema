@@ -46,6 +46,8 @@ public class TestCinema {
     public void testCine(){
         Cine c = new Cine("Astor");
         out.println(c.infoCine());
+        c.setFechaYHoraActual();
+        out.println(c.getFechaActual());
     }
     @Test
     public void testOcuparButaca(){
