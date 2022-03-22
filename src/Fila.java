@@ -14,6 +14,7 @@ public class Fila {
     public void generarButacas() {
         for (int i = 0; i < limiteButacas; i++) {
             Butaca butaca = new Butaca(i, true);
+            butaca.setId(codigoFila);
             addbutaca(butaca);
         }
     }

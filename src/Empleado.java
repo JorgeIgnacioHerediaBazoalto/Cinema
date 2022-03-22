@@ -8,9 +8,8 @@ public class Empleado extends Persona{
         setIdEmpleado();
     }
 
-    public void setIdEmpleado() {
-        this.idEmpleado = "EMP-" + contadorClient;
-        super.contadorClient += 1;
+    public void setIdEmpleado(int numEmpleado) {
+        this.idEmpleado = "EMP-" + numEmpleado;
     }
 
     public String getIdEmpleado() {

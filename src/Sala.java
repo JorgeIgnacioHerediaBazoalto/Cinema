@@ -5,13 +5,14 @@ import java.util.List;
 public class Sala {
     String codigosala;
     int numeroFilas;
+    int capacidad;
     ArrayList<Fila> filas;
 
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_RESET = "\u001B[0m";
 
-
+//"SALA-A"
     public Sala(String codigosala, int numeroFilas){
         this.codigosala = codigosala;
         this.numeroFilas = numeroFilas;
@@ -25,6 +26,7 @@ public class Sala {
             fila.generarButacas();
             filas.add(fila);
         }
+        setCapacidad();
     }
 
     public String mostrarAsientos() {
@@ -52,10 +54,17 @@ public class Sala {
         return asientos;
     }
 
-    public String getCodigosala() {return codigosala;}
+    public void setCapacidad() {
+        this.capacidad = filas.get(0).limiteButacas * numeroFilas;
+    }
+
+    public String getCodigosala() {return "SALA - " + codigosala;}
 
     public void addfila(Fila fila){filas.add(fila);}
 
     public ArrayList<Fila> getFilas() {return filas;}
 
+    public int getCapacidad() {
+        return capacidad;
+    }
 }

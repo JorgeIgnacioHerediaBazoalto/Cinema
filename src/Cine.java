@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -6,10 +8,15 @@ public class Cine {
     Boleteria boleteria;
     ArrayList<Sala> salas;
 
+    //FECHAS
+    LocalDate fechaActual;
+    LocalTime horaActual;
+
     public Cine(String nombre){
         this.nombre = nombre;
         this.salas = new ArrayList<>();
         this.boleteria = null;
+
     }
 
     public Cine(String nombre, Boleteria boleteria) {
@@ -23,6 +30,15 @@ public class Cine {
     public void addSala(Sala sala){salas.add(sala);}
 
     public String getNombre() {return nombre;}
+
+    public LocalDate getFechaActual() {setFechaYHoraActual(); return fechaActual;}
+
+    public LocalTime getHoraActual() {setFechaYHoraActual(); return horaActual;}
+
+    public void setFechaYHoraActual(){
+        this.fechaActual = LocalDate.now();
+        this.horaActual = LocalTime.now();
+    }
 
     public String infoCine(){
         StringBuilder info= new StringBuilder();

@@ -23,7 +23,6 @@ public class Boleteria implements Servicios{
         int indiceFuncion = scan.nextInt();
         cartelera.searchFuncions(indiceFuncion);
 
-
     }
 
     @Override

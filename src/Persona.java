@@ -1,12 +1,7 @@
 import java.time.LocalDate;
 
 public class Persona {
-
-    public int contadorClient = 0;
-    public int contadorEmpleado = 0;
-
     // Atributos
-    protected int ANIOACTUAL = LocalDate.now().getYear();
 
     private String name;
     private String nacionalidad;
@@ -21,7 +16,7 @@ public class Persona {
         this.setNacionalidad(nacionalidad);
         this.setId(id);
         this.setFechaNacimiento(fechaNacimiento);
-        this.setEdad(ANIOACTUAL - fechaNacimiento.getYear());
+        this.setEdad(LocalDate.now().getYear() - fechaNacimiento.getYear());
     }
 
     public String getInfo() {
@@ -65,6 +60,10 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public void setEdad() {
+        this.edad = LocalDate.now().getYear() - fechaNacimiento.getYear();
     }
 
     public void setId(int id) {
