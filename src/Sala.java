@@ -12,17 +12,16 @@ public class Sala {
     public static final String ANSI_RESET = "\u001B[0m";
 
 
-    public Sala(String codigosala, int numeroFilas){
+    public Sala(String codigosala){
         this.codigosala = codigosala;
-        this.numeroFilas = numeroFilas;
         this.filas = new ArrayList<>();
     }
 
-    public void generarButacas(int numeroButacasFila) {
-        String[] ArrayStrings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-        for(int i = 0; i < numeroFilas; i++) {
-            Fila fila = new Fila(ArrayStrings[i], numeroButacasFila);
-            fila.generarButacas();
+    public void generarFilas( int numeroFilas,int butacasporfila) {
+        this.numeroFilas=numeroFilas;
+        for (int i=1;i<=numeroFilas;i++){
+            Fila fila = new Fila(String.valueOf((char)(64+i)));
+            fila.generarButacas(butacasporfila);
             filas.add(fila);
         }
     }
@@ -52,7 +51,7 @@ public class Sala {
         return asientos;
     }
 
-    public String getCodigosala() {return codigosala;}
+    public String getCodigosala() {return "Sala - "+codigosala;}
 
     public void addfila(Fila fila){filas.add(fila);}
 

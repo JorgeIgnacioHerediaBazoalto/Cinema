@@ -31,28 +31,28 @@ public class TestCinema {
 
     @Test
     public void testFila(){
-        Fila f=new Fila("A1", 10);
-        PlantillaFila p = new PlantillaFila(f);
+        Fila f=new Fila("A1");
+        f.generarButacas(10);
         System.out.println(f.infoFila());
     }
     @Test
     public void testSala(){
-        Sala s=new Sala("A", 6);
-        PlantillaSala p = new PlantillaSala(s);
+        Sala s=new Sala("A");
+        s.generarFilas(6,9);
         System.out.println(s.mostrarAsientos());
     }
     @Test
     public void testCine(){
         Cine c = new Cine("Astor");
-        PlantillaCine pc = new PlantillaCine(c);
+        c.generarsalas(7,4,6);
         System.out.println(c.infoCine());
     }
     @Test
     public void testOcuparButaca(){
         Cine c = new Cine("Astor");
-        PlantillaCine pc = new PlantillaCine(c);
+        c.generarsalas(7,4,6);
         System.out.println(c.infoCine());
-        c.comprarbutaca("C","A",9);
+        c.comprarbutaca("A","A",4);
     }
 
     @Test
@@ -72,8 +72,8 @@ public class TestCinema {
         Pelicula peli1 = new Pelicula("Point Of Break", GeneroPelicula.ACCION, 2.5);
         Funcion funcion = new Funcion(peli1, "2D", 40, 50);
 
-        Sala sala1 = new Sala("VIP-3", 8);
-        Sala sala2 = new Sala("VIP-3", 8);
+        Sala sala1 = new Sala("VIP-3");
+        Sala sala2 = new Sala("VIP-3");
 
         funcion.addHorario(LocalTime.of(2, 30), sala1);
 
@@ -94,8 +94,8 @@ public class TestCinema {
 
     @Test
     public void testSala2() {
-        Sala sala1 = new Sala("1-VIP", 8);
-        sala1.generarButacas(10);
+        Sala sala1 = new Sala("1-VIP");
+        sala1.generarFilas(8,8);
         System.out.println(sala1.mostrarAsientos());
 
         sala1.filas.get(0).butacas.get(0).setDisponible(false);

@@ -5,6 +5,7 @@ public class Cine {
     String nombre;
     Boleteria boleteria;
     ArrayList<Sala> salas;
+    int numerosalas;
 
     public Cine(String nombre){
         this.nombre = nombre;
@@ -18,6 +19,16 @@ public class Cine {
         this.boleteria = boleteria;
     }
 
+    public void generarsalas(int numerosalas,int numerofilas, int butacasporfila){
+        this.numerosalas=numerosalas;
+        for (int i=1;i<=numerosalas;i++){
+            Sala sala = new Sala(String.valueOf((char)(64+i)));
+            sala.generarFilas(numerofilas,butacasporfila);
+            salas.add(sala);
+        }
+
+    }
+
     public ArrayList<Sala> getSalas() {return salas;}
 
     public void addSala(Sala sala){salas.add(sala);}
@@ -28,7 +39,7 @@ public class Cine {
         StringBuilder info= new StringBuilder();
         info.append("Nombre del cine ").append(getNombre()).append("\n");
         for (Sala sala:salas) {
-            info.append("Código de sala: ").append(sala.getCodigosala()).append("\n");
+            info.append(sala.getCodigosala()).append("\n");
             info.append(sala.mostrarAsientos());
         }
         info.append("\n");
@@ -37,7 +48,7 @@ public class Cine {
 
     public void comprarbutaca(String codigosala,String codigofila,int numerobutaca){
         for (Sala sala:getSalas()) {
-            if (Objects.equals(codigosala, sala.getCodigosala())){
+            if (Objects.equals("Sala - "+codigosala, sala.getCodigosala())){
                 for (Fila fila:sala.getFilas()) {
                     if (Objects.equals(codigofila, fila.getCodigofila())){
                         for (Butaca butaca: fila.getButacas()) {
