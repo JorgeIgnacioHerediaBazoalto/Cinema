@@ -5,7 +5,6 @@ public class Empleado extends Persona{
 
     public Empleado(String name, String nacionalidad, int id, LocalDate fechaNacimiento) {
         super(name, nacionalidad, id, fechaNacimiento);
-        setIdEmpleado();
     }
 
     public void setIdEmpleado(int numEmpleado) {

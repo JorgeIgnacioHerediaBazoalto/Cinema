@@ -26,7 +26,7 @@ public class Boleteria implements Servicios{
     }
 
     @Override
-    public void canjearPuntos() {
+    public void facturar() {
 
     }
 

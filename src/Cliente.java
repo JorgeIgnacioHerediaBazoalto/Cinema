@@ -7,11 +7,10 @@ public class Cliente extends Persona{
     public Cliente(String name, String nacionalidad, int id, LocalDate fechaNacimiento) {
         super(name, nacionalidad, id, fechaNacimiento);
         this.puntos = 0;
-        setIdClient();
     }
 
     public void setIdClient(int numClient) {
-        this.idClient = "CLI-" + numClient+1;
+        this.idClient = "CLI-" + numClient;
     }
 
     public String getIdClient() {

@@ -56,11 +56,15 @@ public class TestCinema {
 
     @Test
     public void testIDClient() {
+        Registro registro = new Registro();
         //la funcion de asignar el id en orden funciona, pero falta que el id sea correlativo, para eso necesito usar el arraylsit de clientes en cine
         Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+
+        registro.registrar(cliente1);
         assertEquals("CLI-0", cliente1.getIdClient());
 
         Empleado empleado1 = new Empleado("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+        registro.registrar(empleado1);
         assertEquals("EMP-0", empleado1.getIdEmpleado());
     }
 
@@ -99,6 +103,27 @@ public class TestCinema {
 
         sala1.filas.get(0).butacas.get(0).setDisponible(false);
         out.println(sala1.mostrarAsientos());
+    }
+
+    @Test
+    public void testCandyBar() {
+        CandyBar candyBar = new CandyBar();
+        Producto producto1 = new Producto("Palomitas", 15.5, 50, 20);
+        candyBar.addProducto(producto1);
+
+        Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+
+        String expectedFactura = "Nombre cliente: Juan Tasma\n" +
+                "ID: 123456789" +
+                "--------------------------------\n" +
+                "------------------------------PRODUCTO-----------------------------" +
+                "\n" +
+                "NAME: Palomitas\n" +
+                "PRECIO(Efectivo): 15.5\n" +
+                "PRECIO(Puntos): 50\n";
+
+        assertEquals(expectedFactura, candyBar.facturar(cliente1, producto1));
+        assertEquals(19, candyBar.productos.get(0).cantidadDisponible);
     }
 
 }
