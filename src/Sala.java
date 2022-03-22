@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Sala {
     String codigosala;
     int numeroFilas;
     int capacidad;
     ArrayList<Fila> filas;
+    int butacasporfila;
 
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -19,39 +18,45 @@ public class Sala {
         this.filas = new ArrayList<>();
     }
 
-    public void generarButacas(int numeroButacasFila) {
-        String[] ArrayStrings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-        for(int i = 0; i < numeroFilas; i++) {
-            Fila fila = new Fila(ArrayStrings[i], numeroButacasFila);
-            fila.generarButacas();
+    public Sala(String codigosala){
+        this.codigosala = codigosala;
+        this.filas = new ArrayList<>();
+    }
+
+    public void generarFilas( int numeroFilas,int butacasporfila) {
+        this.butacasporfila=butacasporfila;
+        this.numeroFilas=numeroFilas;
+        for (int i=1;i<=numeroFilas;i++){
+            Fila fila = new Fila(String.valueOf((char)(64+i)));
+            fila.generarButacas(butacasporfila);
             filas.add(fila);
         }
         setCapacidad();
     }
 
     public String mostrarAsientos() {
-        String asientos = "";
-        for (int i = 1; i <= filas.get(1).limiteButacas; i++) {
-            asientos += ANSI_RESET + "   " + i + ". ";
+        StringBuilder asientos = new StringBuilder();
+        asientos.append("  ");
+        for (int i=1;i<=butacasporfila;i++) {
+            asientos.append("  ").append(ANSI_RESET).append(i).append("  ");
+            asientos.append(" ");
         }
-        asientos += "\n";
-
-        for (Fila fila : filas
-             ) {
-            asientos += ANSI_RESET + fila.codigoFila + ": ";
+        asientos.append("\n");
+        for (Fila fila : filas) {
+            asientos.append(ANSI_RESET).append(fila.codigoFila).append(": ");
             for (Butaca butaca : fila.butacas
                  ) {
                 if (butaca.estaDisponible()){
-                    asientos += ANSI_GREEN + "!---! ";
+                    asientos.append(ANSI_GREEN + "!---! ");
                 }
                 else {
-                    asientos += ANSI_RED + "!-*-! ";
+                    asientos.append(ANSI_RED + "!-*-! ");
                 }
             }
-            asientos += "\n"+ANSI_RESET;
+            asientos.append("\n" + ANSI_RESET);
         }
 
-        return asientos;
+        return asientos.toString();
     }
 
     public void setCapacidad() {

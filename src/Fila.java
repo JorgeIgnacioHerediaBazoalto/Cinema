@@ -5,14 +5,14 @@ public class Fila {
     String codigoFila;
     ArrayList<Butaca> butacas;
 
-    public Fila(String codigo, int limiteButacas){
+    public Fila(String codigo){
         this.codigoFila = codigo;
-        this.limiteButacas = limiteButacas;
         this.butacas = new ArrayList<>();
     }
 
-    public void generarButacas() {
-        for (int i = 0; i < limiteButacas; i++) {
+    public void generarButacas(int limiteButacas) {
+        this.limiteButacas=limiteButacas;
+        for (int i = 1; i <= limiteButacas; i++) {
             Butaca butaca = new Butaca(i, true);
             butaca.setId(codigoFila);
             addbutaca(butaca);
@@ -28,7 +28,12 @@ public class Fila {
     }
 
     public void addbutaca(Butaca butaca){
-        butacas.add(butaca);
+        if (butacas.size()<=10){
+            butacas.add(butaca);
+        }
+        else {
+            System.out.println("Fila llena");
+        }
     }
 
     public String infoFila(){
