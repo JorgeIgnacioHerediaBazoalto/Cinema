@@ -11,6 +11,27 @@ public class Cine {
         this.nombre = nombre;
         this.salas = new ArrayList<>();
         this.boleteria = null;
+        Sala a=new Sala("A");
+        a.generarFilas(10,10);
+        Sala b=new Sala("B");
+        b.generarFilas(10,10);
+        Sala c=new Sala("C");
+        c.generarFilas(10,10);
+        Sala d=new Sala("D");
+        d.generarFilas(8,10);
+        Sala e=new Sala("E");
+        e.generarFilas(8,10);
+        Sala f=new Sala("F");
+        e.generarFilas(5,10);
+        Sala g=new Sala("G");
+        e.generarFilas(5,10);
+        addSala(a);
+        addSala(b);
+        addSala(c);
+        addSala(d);
+        addSala(e);
+        addSala(f);
+        addSala(g);
     }
 
     public Cine(String nombre, Boleteria boleteria) {
@@ -74,4 +95,6 @@ public class Cine {
         }
 
     }
+
+
 }

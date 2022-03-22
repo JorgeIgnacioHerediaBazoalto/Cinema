@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
 
+import static java.lang.System.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -26,32 +27,30 @@ public class TestCinema {
     public void testButaca(){
         Butaca b1=new Butaca(1,true);
         assertTrue(b1.estaDisponible());
-        System.out.println(b1.getInfoButaca());
+        out.println(b1.getInfoButaca());
     }
 
     @Test
     public void testFila(){
         Fila f=new Fila("A1");
         f.generarButacas(10);
-        System.out.println(f.infoFila());
+        out.println(f.infoFila());
     }
     @Test
     public void testSala(){
         Sala s=new Sala("A");
         s.generarFilas(6,9);
-        System.out.println(s.mostrarAsientos());
+        out.println(s.mostrarAsientos());
     }
     @Test
     public void testCine(){
         Cine c = new Cine("Astor");
-        c.generarsalas(7,4,6);
-        System.out.println(c.infoCine());
+        out.println(c.infoCine());
     }
     @Test
     public void testOcuparButaca(){
         Cine c = new Cine("Astor");
-        c.generarsalas(7,4,6);
-        System.out.println(c.infoCine());
+        out.println(c.infoCine());
         c.comprarbutaca("A","A",4);
     }
 
@@ -96,10 +95,10 @@ public class TestCinema {
     public void testSala2() {
         Sala sala1 = new Sala("1-VIP");
         sala1.generarFilas(8,8);
-        System.out.println(sala1.mostrarAsientos());
+        out.println(sala1.mostrarAsientos());
 
         sala1.filas.get(0).butacas.get(0).setDisponible(false);
-        System.out.println(sala1.mostrarAsientos());
+        out.println(sala1.mostrarAsientos());
     }
 
 }
