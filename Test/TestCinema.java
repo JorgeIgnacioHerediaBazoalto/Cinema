@@ -71,6 +71,15 @@ public class TestCinema {
     }
 
     @Test
+    public void testTarjetaCliente()
+    {
+        Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+        TarjetaDeCredito tarjetaC1 = new TarjetaDeCredito("Los Elefantes", "Juan Tasma", 2000);
+        cliente1.setTarjeta(tarjetaC1);
+        out.println(cliente1.getNombreBancoTarjeta());
+    }
+
+    @Test
     public void testCartelera() {
         int year = 2022;
         Cartelera cartelera = new Cartelera(LocalDate.of(year, 3, 17), LocalDate.of(year, 4, 2));

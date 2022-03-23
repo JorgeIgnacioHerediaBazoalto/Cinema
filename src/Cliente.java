@@ -3,6 +3,7 @@ import java.time.LocalDate;
 public class Cliente extends Persona{
     String idClient;
     int puntos;
+    TarjetaDeCredito tarjeta;
 
     public Cliente(String name, String nacionalidad, int id, LocalDate fechaNacimiento) {
         super(name, nacionalidad, id, fechaNacimiento);
@@ -19,5 +20,13 @@ public class Cliente extends Persona{
 
     public void setPuntos(int puntos) {
         this.puntos = puntos;
+    }
+
+    public void setTarjeta(TarjetaDeCredito tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+    public String getNombreBancoTarjeta()
+    {
+        return tarjeta.banco;
     }
 }
