@@ -2,6 +2,7 @@ import java.time.LocalTime;
 import java.util.*;
 
 public class Boleteria{
+
     Empleado empleado;
     Cartelera cartelera;
     Sala sala;
