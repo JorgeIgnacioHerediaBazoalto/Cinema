@@ -26,9 +26,9 @@ public class Boleteria{
 
         for(int indice = 0; indice < cantidadDeBoletos; indice ++){
 
-//            butaca = butacasLibres.get(indice);
-//            Boleto boleto = new Boleto(cine, pelicula, sala, butaca, formatoPelicula);
-//            boleto.generarBoleto();
+            butaca = butacasLibres.get(indice);
+            Boleto boleto = new Boleto(cine, pelicula, sala, butaca, formatoPelicula);
+            boleto.generarBoleto();
             precioBoleto = generarPrecioBoleto(formatoPelicula);
             subtotal = precioBoleto + subtotal;
         }
