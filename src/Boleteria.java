@@ -26,9 +26,9 @@ public class Boleteria{
 
         for(int indice = 0; indice < cantidadDeBoletos; indice ++){
 
-            butaca = butacasLibres.get(indice);
-            Boleto boleto = new Boleto(cine, pelicula, sala, butaca, formatoPelicula);
-            boleto.generarBoleto();
+//            butaca = butacasLibres.get(indice);
+//            Boleto boleto = new Boleto(cine, pelicula, sala, butaca, formatoPelicula);
+//            boleto.generarBoleto();
             precioBoleto = generarPrecioBoleto(formatoPelicula);
             subtotal = precioBoleto + subtotal;
         }
@@ -45,7 +45,7 @@ public class Boleteria{
         System.out.println(" ".repeat(12) + "Factura Cine " + cine.getNombre());
         System.out.println("=".repeat(n1));
         System.out.println("=".repeat(n1) + "\n");
-        System.out.println(" ".repeat(19) + cine.getUbicacion());
+        System.out.println(" ".repeat(19) /*+ cine.getUbicacion()*/);
         System.out.println(" ".repeat(15) + "FACTURA N.12356"+"\n"+" ".repeat(7)+"AUTORIZACION N. 332401100018913"+"\n");
         System.out.println(" ".repeat(n2) + "Actividades de cinematografia"+"\n"+" ".repeat(12)+"y otras actividades"+"\n");
         System.out.println(" ".repeat(n2) + "Fecha"+" ".repeat(n2)+":"+" ".repeat(n3) + cine.getFechaActual());
@@ -88,7 +88,7 @@ public class Boleteria{
         salas = cine.getSalas();
         for(int i = 0; i < salas.size(); i ++) {
             sala = salas.get(i);
-            String nombrePelicula = sala.getNombrePelicula();
+            String nombrePelicula = pelicula.nombrePelicula;
             //LocalTime localTimeSala
             if(nombrePelicula.equals(pelicula.getNombrePelicula())){
                 return sala;

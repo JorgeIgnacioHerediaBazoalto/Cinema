@@ -116,25 +116,4 @@ public class TestCinema {
         out.println(sala1.mostrarAsientos());
     }
 
-    @Test
-    public void testCandyBar() {
-        CandyBar candyBar = new CandyBar();
-        Producto producto1 = new Producto("Palomitas", 15.5, 50, 20);
-        candyBar.addProducto(producto1);
-
-        Cliente cliente1 = new Cliente("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
-
-        String expectedFactura = "Nombre cliente: Juan Tasma\n" +
-                "ID: 123456789" +
-                "--------------------------------\n" +
-                "------------------------------PRODUCTO-----------------------------" +
-                "\n" +
-                "NAME: Palomitas\n" +
-                "PRECIO(Efectivo): 15.5\n" +
-                "PRECIO(Puntos): 50\n";
-
-        assertEquals(expectedFactura, candyBar.facturar(cliente1, producto1));
-        assertEquals(19, candyBar.productos.get(0).cantidadDisponible);
-    }
-
 }

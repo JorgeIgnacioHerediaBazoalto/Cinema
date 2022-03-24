@@ -15,6 +15,10 @@ public class ObjetoEnCine {
         return null;
     }
 
+    public void vender(int cantidad) {
+        cantidadDisponible -= cantidad;
+    }
+
     public String infoObjeto() {
         return cabecera() + "\n" +
                 "NAME: " + name + "\n" +
